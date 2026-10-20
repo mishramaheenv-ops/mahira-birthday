@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe7f0">
+<title>Mahira's Birthday Surprise 🎀</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <div class="topline">A tiny surprise made with love <span class="heart">♥</span></div>
+  <div class="decor" aria-hidden="true">♡ ✧ 🎀 ✧ ♡</div>
+
+  <section class="screen active card" id="welcome">
+    <div class="big-emoji" aria-hidden="true">🎁</div>
+    <h1>Hey Mahira! <span class="heart">💗</span></h1>
+    <p>I have a very important, extremely serious, top-secret gift for you.</p>
+    <p><strong>Are you ready to open it?</strong></p>
+    <div class="btnrow">
+      <button class="btn primary" onclick="startMusic(); go('countdown')">YES! Give me my gift 🥹</button>
+      <button class="btn secondary" onclick="go('nope')">No 🙄</button>
+    </div>
+    <p class="tiny" style="margin:18px 0 0">P.S. This gift comes with absolutely no return policy. 😌</p>
+  </section>
+
+  <section class="screen card" id="nope">
+    <div class="big-emoji" aria-hidden="true">🥺💔</div>
+    <h2>YOU SAID NO?! 😭</h2>
+    <p class="no-message">Mahira, I prepared all this and you rejected me?!</p>
+    <p>I'm very sad, i will never talk to you. 😤<br>Go back and press YES, you little troublemaker. 😂</p>
+    <div class="decor" aria-hidden="true">😭 😭 💔 😔</div>
+    <button class="btn primary" onclick="go('welcome')">↩ Go back & choose YES</button>
+  </section>
+
+  <section class="screen card" id="countdown">
+    <div class="big-emoji" aria-hidden="true">🎀</div>
+    <h2>Prepare yourself...</h2>
+    <p>Your very important birthday mission begins in</p>
+    <div class="count-number" id="countNumber" aria-live="polite">3</div>
+    <p class="tiny">Please remain calm. Or don't. 😌</p>
+    <button class="btn secondary" id="skipCountdown" onclick="showPuzzle()">I'm too excited — skip!</button>
+  </section>
+
+  <section class="screen card" id="puzzle">
+    <div class="big-emoji" aria-hidden="true">🧩💖</div>
+    <h2>Match the same pictures!</h2>
+    <p>Tap two cards to find a matching pair. Find all three pairs to unlock your gift! 🎁</p>
+    <div class="match-grid" id="matchGrid" aria-label="Picture matching game">
+      <button class="match-card" data-pair="star" aria-label="Mystery picture 1" onclick="flipCard(this)">❔</button>
+      <button class="match-card" data-pair="heart" aria-label="Mystery picture 2" onclick="flipCard(this)">❔</button>
+      <button class="match-card" data-pair="gift" aria-label="Mystery picture 3" onclick="flipCard(this)">❔</button>
+      <button class="match-card" data-pair="gift" aria-label="Mystery picture 4" onclick="flipCard(this)">❔</button>
+      <button class="match-card" data-pair="star" aria-label="Mystery picture 5" onclick="flipCard(this)">❔</button>
+      <button class="match-card" data-pair="heart" aria-label="Mystery picture 6" onclick="flipCard(this)">❔</button>
+    </div>
+    <p class="feedback" id="matchFeedback" aria-live="polite">Find the matching pictures! 🌸</p>
+    <button class="btn primary" id="unlock" style="display:none" onclick="go('gift')">You did it! Open my gift 🎁</button>
+  </section>
+
+  <section class="screen card" id="gift">
+    <div class="confetti" aria-hidden="true">✨ 💖 ✨</div>
+    <h2>You did it, Mahira! 🎉</h2>
+    <p>Your gift is finally ready. Tap the box to open it!</p>
+    <button class="gift-button" onclick="openGift()" aria-label="Open your birthday gift"><span class="big-emoji" id="giftEmoji">🎁</span></button>
+    <p class="tiny">Warning: opening may cause extreme smiling. 😁</p>
+  </section>
+
+  <section class="screen card" id="galleryScreen">
+    <div class="big-emoji" aria-hidden="true">📸💗</div>
+    <h2>Mahira's little photo gallery</h2>
+    <p>Six spots for six lovely memories. Add your six pictures to the <strong>photos</strong> folder and name them <strong>mahira1.jpg</strong> through <strong>mahira6.jpg</strong>.</p>
+    <div class="gallery">
+      <div class="photo"><img id="img1" alt="Mahira memory photo 1" src="photos/mahira1.jpg.jpeg"><label>My favourite smile ♡</label></div>
+      <div class="photo"><img id="img2" alt="Mahira memory photo 2" src="photos/mahira2.jpg.jpeg"><label>Chasing dreams ✨</label></div>
+      <div class="photo"><img id="img3" alt="Mahira memory photo 3" src="photos/mahira3.jpg.jpeg"><label>Pretty soul ♡</label></div>
+      <div class="photo"><img id="img4" alt="Mahira memory photo 4" src="photos/mahira4.jpg.jpeg"><label>Always kind 💕</label></div>
+      <div class="photo"><img id="img5" alt="Mahira memory photo 5" src="photos/mahira5.jpg.jpeg"><label>Makeup queen 📖</label></div>
+      <div class="photo"><img id="img6" alt="Mahira memory photo 6" src="photos/mahira6.jpg.jpeg"><label>Cutie Pie 🌟</label></div>
+    </div>
+    <button class="btn primary" onclick="go('message')">Next: your birthday message 💌</button>
+  </section>
+
+  <section class="screen card" id="message">
+    <div class="confetti" aria-hidden="true">🎂 🎉 💗</div>
+    <h1>Happiest Birthday to you, Mahira! 🎂</h1>
+    <div class="birthday-note">
+      <p>Congratulations on completing another year of being dramatic, adorable, and slightly impossible to deal with. 😂💗</p>
+      <p>May your life be full of happiness, success, good health, delicious cake, and people who understand your weirdness.</p>
+      <p>Keep shining, keep laughing, and please stay this amazing (and only a little annoying). 😌💕</p>
+      <p><strong>You're one of a kind, Mahira. Never forget how special you are.🫶🏻 but also you are a quick angry bird 😁😂</strong></p>
+    </div>
+    <p class="decor" aria-hidden="true">♡ ✨ ♡ ✨ ♡</p>
+    <button class="btn primary" onclick="go('final')">One last thing... 🥹</button>
+  </section>
+
+  <section class="screen card" id="final">
+    <div class="big-emoji" aria-hidden="true">🧸💝</div>
+    <h2>Now send a thank you message for your sis, Mahira! ♡</h2>
+    <p>May your next year filled with joy and cake worth absolutely no sharing because I don't have cake.🎂😂</p>
+    <p><strong>Happy Birthday, Mahira! 💗</strong></p>
+    <div class="confetti" aria-hidden="true">🎀 💖 🌷 ✨</div>
+    <button class="btn secondary" onclick="go('welcome')">Replay the surprise ↺</button>
+  </section>
+
+  <!-- Birthday music player -->
+  <div class="music-player">
+    <audio id="birthdayMusic" loop preload="auto">
+      <source src="music/birthday.mp3" type="audio/mpeg">
+    </audio>
+    <button class="btn primary" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="Play or pause birthday music">🎵 Play Music</button>
+  </div>
+
+  <div class="footer">Made with lots of love, a little drama, and pink glitter. ♡</div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
